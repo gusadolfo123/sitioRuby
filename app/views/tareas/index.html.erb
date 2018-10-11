@@ -1,4 +1,39 @@
-<h1>Mis Tareas</h1>
-<% @tareas.each do |tarea| %>
-    <li><%= tarea.descripcion %></li>
-<% end %>
+
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-md-12">
+            <h1 class="text-center">Mis Tareas</h1>
+            <%= link_to "Crear", { controller: "tareas", action: "new" }, 
+            class: "btn btn-sm btn-outline-primary mt-2 mb-2" %> 
+            <table class="table table-hover">
+
+                <tbody>
+                    <% @tareas.each do |tarea| %>
+                    <tr>
+                        <td><%= tarea.titulo %></td>
+                        <td><%= tarea.descripcion %></td>
+                        <td>
+                            <%= 
+                                link_to "Detalle", 
+                                { controller: "tareas", action: "show", id: tarea.id }, 
+                                class: "btn btn-sm btn-info"
+                            %>
+                        </td>
+                        <td>
+                            <%= 
+                                link_to "Modificar", edit_tarea_path(tarea),                              
+                                class: "btn btn-sm btn-primary"
+                            %>
+                        </td>
+                        <td>
+                                <%= link_to 'Eliminar', tarea_path(tarea),
+                                                        method: :delete,
+                                                        data: { confirm: '¿Estás seguro?' }, class: "btn btn-sm btn-danger" %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>    
+</div>

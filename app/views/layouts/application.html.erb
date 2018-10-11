@@ -9,6 +9,29 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container pl-0 pr-0">
+        <a class="navbar-brand" href="#">Control Tareas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to "Inicio", { controller: "welcome", action: "index" }, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Tareas", { controller: "tareas", action: "index" }, class: "nav-link" %>
+            </li>         
+          </ul>       
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid my-5">
+      <%= yield %>
+    </div>
+
   </body>
 </html>

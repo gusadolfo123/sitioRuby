@@ -1,0 +1,13 @@
+
+
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-md-12">
+            <h1 class="text-center">Detalle Tarea: <%= @tarea.id %></h1>
+            <p><%= @tarea.titulo %></p>
+            <p><%= @tarea.descripcion %></p>
+            <%= link_to "Regresar", 
+                { controller: "tareas", action: "index" }, class: "btn btn-sm btn-outline-success" %>
+        </div>
+    </div>    
+</div>
